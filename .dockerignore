@@ -1,0 +1,36 @@
+.git
+.gitignore
+.github
+
+# Frontend + Node artifacts (not needed for the Rust build).
+node_modules
+**/node_modules
+apps/web
+packages
+pnpm-lock.yaml
+pnpm-workspace.yaml
+package.json
+
+# Build artifacts that shouldn't be copied into the image.
+target
+**/target
+dist
+**/dist
+.next
+**/.next
+
+# Local env + secrets.
+.env
+.env.*
+apps/*/.env
+apps/*/.env.*
+
+# IDE / OS.
+.idea
+.vscode
+.DS_Store
+
+# Docs + scripts that don't affect the build.
+*.md
+docker-compose.yml
+contracts
