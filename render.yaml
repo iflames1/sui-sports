@@ -1,0 +1,24 @@
+# Render Blueprint for the Axum API.
+# Docs: https://render.com/docs/blueprint-spec
+#
+# One-time setup on Render:
+#   1. New + → Blueprint → point at this repo.
+#   2. Render creates the service and managed Postgres below.
+#   3. Add any secret env vars (JWT_SECRET, CORS_ORIGINS, etc.) under the
+#      service's "Environment" tab. PORT and DATABASE_URL are injected.
+
+services:
+    - type: web
+      name: sui-sports-api
+      runtime: rust
+      plan: starter
+      rootDir: .
+      buildCommand: cargo build --release --bin sui-sports-api
+      startCommand: ./target/release/sui-sports-api
+      healthCheckPath: /health
+      autoDeploy: true
+
+databases:
+    - name: sui-sports-db
+      plan: basic-256mb
+      postgresMajorVersion: "17"
