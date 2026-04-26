@@ -1,6 +1,7 @@
 "use client";
 
 import { ConnectButton } from "@mysten/dapp-kit";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Bell, Download, Home, Radio, Sparkles, Users } from "lucide-react";
@@ -52,9 +53,17 @@ export function Nav() {
         <Link
           href="/"
           className="text-foreground flex items-center gap-2 font-semibold tracking-tight hover:opacity-90"
+          aria-label="Sui Sports home"
         >
-          <span className="bg-primary text-primary-foreground inline-flex size-7 items-center justify-center rounded-lg text-xs font-bold">
-            SS
+          <span className="ring-border/50 inline-flex size-8 items-center justify-center overflow-hidden rounded-lg bg-black ring-1">
+            <Image
+              src="/sui-sport.png"
+              alt="Sui Sports"
+              width={64}
+              height={64}
+              className="size-full object-cover"
+              priority
+            />
           </span>
           <span className="hidden sm:inline">Sui Sports</span>
         </Link>

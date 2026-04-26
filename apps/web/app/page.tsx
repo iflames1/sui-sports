@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -59,12 +60,28 @@ export default function Home() {
   const HeroIcon = heroCta.icon;
 
   return (
-    <main className="mx-auto flex max-w-6xl flex-col gap-14 px-4 py-12 md:py-16">
+    <main className="relative mx-auto flex max-w-6xl flex-col gap-14 px-4 py-12 md:py-16">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[420px] bg-[radial-gradient(ellipse_at_top,color-mix(in_oklch,var(--color-primary)_22%,transparent),transparent_70%)]"
+      />
       <section className="grid gap-10 md:grid-cols-[3fr_2fr] md:items-center">
         <div className="space-y-5">
-          <p className="text-primary text-xs font-semibold tracking-widest uppercase">
-            Athletes · Fans · Live on Sui
-          </p>
+          <div className="flex items-center gap-3">
+            <span className="ring-border/60 inline-flex size-12 items-center justify-center overflow-hidden rounded-2xl bg-black ring-1 shadow-lg shadow-primary/20">
+              <Image
+                src="/sui-sport.png"
+                alt="Sui Sports"
+                width={96}
+                height={96}
+                className="size-full object-cover"
+                priority
+              />
+            </span>
+            <p className="text-primary text-xs font-semibold tracking-widest uppercase">
+              Athletes · Fans · Live on Sui
+            </p>
+          </div>
           <h1 className="text-foreground text-4xl font-semibold tracking-tight text-balance md:text-5xl">
             Structured, real-time access to the athletes you care about.
           </h1>

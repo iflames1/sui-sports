@@ -20,10 +20,17 @@ export const metadata: Metadata = {
   description:
     "Fans access verified athletes through live sessions, tiers, and paywalled content.",
   appleWebApp: { capable: true, title: "Sui Sports" },
+  icons: {
+    icon: [
+      { url: "/sui-sport.png", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/sui-sport.png" }],
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#18181b",
+  themeColor: "#0a0e1a",
   width: "device-width",
   initialScale: 1,
 };
